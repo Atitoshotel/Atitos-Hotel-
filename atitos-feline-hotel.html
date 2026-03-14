@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atitos Feline Hotel - Premium Cat Boarding in St Catharines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #2a1f2e;
+            --primary-light: #f5f0f3;
+            --accent-gold: #d4a574;
+            --accent-rose: #c9837e;
+            --text-dark: #3d3d3d;
+            --text-light: #6b6b6b;
+            --border: #e8dce3;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--primary-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background elements */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -150px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 131, 126, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatReverse 30s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(40px); }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-40px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 240, 243, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-dark);
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 30px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 4.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            letter-spacing: -1px;
+            line-height: 1.1;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            color: var(--accent-rose);
+            margin-bottom: 40px;
+            font-weight: 300;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            font-weight: 300;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--accent-gold), #d4a574);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+            letter-spacing: 1px;
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 120px auto;
+            padding: 0 30px;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 20px auto 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 120px auto;
+            padding: 80px 30px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .about h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 3em;
+            margin-bottom: 30px;
+            color: var(--primary-dark);
+        }
+
+        .about p {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 1200px;
+            margin: 120px auto;
+            padding: 0 30px;
+            text-align: center;
+        }
+
+        .contact-content {
+            background: linear-gradient(135deg, var(--primary-dark), #3d2a40);
+            color: white;
+            padding: 80px 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-content h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 3em;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            padding: 20px;
+        }
+
+        .contact-item p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+            font-size: 1.2em;
+        }
+
+        .contact-item a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--primary-dark);
+            color: white;
+            margin-top: 120px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+
+            .about {
+                padding: 50px 20px;
+            }
+
+            .contact-content {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Atitos <span>Feline</span></div>
+            <ul class="nav-links">
+                <li><a href="#features">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Your Cat Deserves The Royal Treatment</h1>
+        <p>Premium Boarding & Hotel Services</p>
+        <div class="hero-subtitle">Luxurious accommodations for your beloved feline companions in St Catharines</div>
+        <a href="#contact" class="cta-button">Book Now</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Why Choose Atitos?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🏨</span>
+                <h3>Luxury Suites</h3>
+                <p>Spacious, comfortable private rooms designed with your cat's comfort and safety in mind. Each suite includes perches, scratching posts, and cozy resting areas.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">👨‍⚕️</span>
+                <h3>Expert Care</h3>
+                <p>Our experienced staff provides professional care with daily feeding, playtime, and attention to your cat's individual needs and preferences.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎮</span>
+                <h3>Enrichment Activities</h3>
+                <p>Interactive play sessions, toys, climbing structures, and window perches to keep your feline friend entertained and mentally stimulated.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏥</span>
+                <h3>Health & Safety</h3>
+                <p>Clean facilities, regular health checks, and strict hygiene protocols ensure your cat stays healthy during their stay with us.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎥</span>
+                <h3>Regular Updates</h3>
+                <p>Daily photos and updates so you can stay connected with your beloved pet while you're away. Peace of mind, guaranteed.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">✨</span>
+                <h3>Special Diets</h3>
+                <p>We accommodate dietary restrictions, medications, and special needs to ensure every cat receives personalized care tailored to their requirements.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Atitos Feline Hotel</h2>
+        <p>At Atitos, we believe your cat is family. That's why we've created a sanctuary where feline guests can relax, play, and feel right at home. Our state-of-the-art facility combines comfort, safety, and professional care to provide the best boarding experience in St Catharines.</p>
+        <p>Whether your cat is staying for a day or an extended vacation, our dedicated team ensures every moment is filled with comfort, attention, and love. We're not just cat boarding—we're cat hospitality at its finest.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Get In Touch</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>📍 Location</strong>
+                    <p>St Catharines, Ontario</p>
+                    <p>Canada</p>
+                </div>
+                <div class="contact-item">
+                    <strong>📞 Phone</strong>
+                    <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                    <p>Available 7 days a week</p>
+                </div>
+                <div class="contact-item">
+                    <strong>✉️ Email</strong>
+                    <p><a href="mailto:hello@atitosfeline.com">hello@atitosfeline.com</a></p>
+                    <p>Booking inquiries welcome</p>
+                </div>
+            </div>
+            <a href="mailto:hello@atitosfeline.com?subject=Booking%20Inquiry" class="cta-button">Book Your Cat's Stay</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Atitos Feline Hotel. All rights reserved.</p>
+        <p>Bringing comfort and luxury to cat boarding in St Catharines</p>
+    </footer>
+</body>
+</html>
